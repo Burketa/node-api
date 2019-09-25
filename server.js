@@ -1,29 +1,24 @@
+//Importações
 const express = require("express");
 const mongoose = require("mongoose");
+
+//Url de conexão com o banco
+const connectionString =
+  "mongodb+srv://burca:burca@cluster0-qxdbz.mongodb.net/nodedb?retryWrites=true&w=majority";
 
 //Iniciando o App
 const app = express();
 
-mongoose.connect(
-  "mongodb+srv://burca:burca@cluster0-qxdbz.mongodb.net/nodedb?retryWrites=true&w=majority",
-  { useNewUrlParser: true, useUnifiedTopology: true }
-);
+//Faz a conexão com o bd
+mongoose.connect(connectionString, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
+//Importa os models nescessários
 require("./src/models/Appointment");
 
-const Appointment = mongoose.model("Appointment");
+//Rotas
+app.use("/api", require("./src/routes"));
 
-app.get("/", (req, res) => {
-  Appointment.create({
-    clientName: "burca",
-    appointmentDate: 1237614,
-    description: "teste"
-  });
-
-  res.send("burca esteve por aqui, muahaha");
-});
-
-app.get("/2", (req, res) => {
-  res.send("segunda rota ?");
-});
-
+//Escuta as requisições
 app.listen(3001);
