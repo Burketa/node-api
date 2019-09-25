@@ -24,4 +24,5 @@ require("./src/models/Appointment");
 app.use("/api", require("./src/routes"));
 
 //Escuta muda portaas requisições
+console.log(process.env.PORT);
 app.listen(process.env.PORT || 3000);
