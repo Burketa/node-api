@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const mongoosePaginate = require("mongoose-paginate");
 
 const AppointmentSchema = new mongoose.Schema({
   clientName: {
@@ -18,5 +19,7 @@ const AppointmentSchema = new mongoose.Schema({
     default: Date.now
   }
 });
+
+AppointmentSchema.plugin(mongoosePaginate);
 
 mongoose.model("Appointment", AppointmentSchema);

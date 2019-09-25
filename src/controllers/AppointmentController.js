@@ -3,7 +3,8 @@ const Appointment = mongoose.model("Appointment");
 
 module.exports = {
   async showAll(req, res) {
-    const appointments = await Appointment.find();
+    const { page = 1 } = req.query;
+    const appointments = await Appointment.paginate({}, { page, limit: 10 });
 
     return res.json(appointments);
   },

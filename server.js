@@ -1,6 +1,7 @@
 //Importações
 const express = require("express");
 const mongoose = require("mongoose");
+const cors = require("cors");
 
 //Url de conexão com o banco
 const connectionString =
@@ -9,6 +10,7 @@ const connectionString =
 //Iniciando o App
 const app = express();
 app.use(express.json());
+app.use(cors());
 
 //Faz a conexão com o bd
 mongoose.connect(connectionString, {
