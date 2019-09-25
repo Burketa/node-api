@@ -24,4 +24,4 @@ require("./src/models/Appointment");
 app.use("/api", require("./src/routes"));
 
 //Escuta as requisições
-app.listen();
+app.listen(process.env.PORT || 8080);
