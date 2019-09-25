@@ -6,10 +6,7 @@ const AppointmentController = require("./controllers/AppointmentController");
 
 //Rotas
 routes.get("/appointments", AppointmentController.index);
-
-routes.get("/2", (req, res) => {
-  res.send("segunda rota ?");
-});
+routes.post("/appointments", AppointmentController.store);
 
 //Exportando as rotas para serem usadas no server.js
 module.exports = routes;

@@ -6,5 +6,10 @@ module.exports = {
     const appointments = await Appointment.find();
 
     return res.json(appointments);
+  },
+
+  async store(req, res) {
+    const appointment = await Appointment.create(req.body);
+    return res.json(appointment);
   }
 };

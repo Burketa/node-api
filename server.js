@@ -8,6 +8,7 @@ const connectionString =
 
 //Iniciando o App
 const app = express();
+app.use(express.json());
 
 //Faz a conexão com o bd
 mongoose.connect(connectionString, {
