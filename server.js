@@ -18,7 +18,7 @@ mongoose.connect(connectionString, {
   useUnifiedTopology: true
 });
 //Importa os models nescessários
-require("./src/models/Appointment");
+require("./src/models/CompanyName");
 
 //Rotas
 app.use("/api", require("./src/routes"));

@@ -2,14 +2,14 @@
 const express = require("express");
 const routes = express.Router();
 
-const AppointmentController = require("./controllers/AppointmentController");
+const CompanyNameController = require("./controllers/CompanyNameController");
 
 //Rotas
-routes.get("/appointments", AppointmentController.showAll);
-routes.post("/appointments", AppointmentController.create);
-routes.get("/appointments/:id", AppointmentController.read);
-routes.put("/appointments/:id", AppointmentController.update);
-routes.delete("/appointments/:id", AppointmentController.delete);
+routes.get("/names", CompanyNameController.showAll);
+routes.post("/names", CompanyNameController.create);
+routes.get("/names/:id", CompanyNameController.read);
+routes.put("/names/:id", CompanyNameController.update);
+routes.delete("/names/:id", CompanyNameController.delete);
 
 //Exportando as rotas para serem usadas no server.js
 module.exports = routes;
